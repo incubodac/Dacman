@@ -1,0 +1,741 @@
+Last login: Thu Jan  9 16:44:24 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+MacBook-Air-de-DAC:~ dac$ cd Documents/
+MacBook-Air-de-DAC:Documents dac$ ls
+App		Fractal Audio	GitLab
+FISICA		GitHub		MATLAB
+MacBook-Air-de-DAC:Documents dac$ cd GitLab/
+MacBook-Air-de-DAC:GitLab dac$ ls
+corregistro		expe_corregistro_2018
+estimulos-eeg		visualsearch_eegem
+MacBook-Air-de-DAC:GitLab dac$ cd corregistro/
+MacBook-Air-de-DAC:corregistro dac$ ls
+codes
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+remote: Enumerating objects: 17, done.
+remote: Counting objects: 100% (17/17), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 13 (delta 5), reused 0 (delta 0)
+Desempaquetando objetos: 100% (13/13), listo.
+Desde http://gitlab.liaa.dc.uba.ar/dcare/corregistro
+   87f8d1c..f6324c0  master     -> origin/master
+error: Los cambios locales de los siguientes archivos serán sobrescritos al fusionar:
+	codes/FP_basePreAnalysis.m
+Por favor, confirma tus cambios o aguárdalos antes de fusionar.
+Abortando
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+error: Los cambios locales de los siguientes archivos serán sobrescritos al fusionar:
+	codes/FP_basePreAnalysis.m
+Por favor, confirma tus cambios o aguárdalos antes de fusionar.
+Abortando
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'small changes'
+[master 9d37180] small changes
+ 2 files changed, 30 insertions(+), 1 deletion(-)
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Auto-fusionando codes/FP_basePreAnalysis.m
+Merge made by the 'recursive' strategy.
+ codes/FP_basePreAnalysis.m                | 20 ++++----
+ codes/FP_bb.m                             | 48 ++++++++++++-------
+ codes/{preAnalysis.m => preAnalysis_bb.m} | 78 +++++++++++++++++++++++++++++--
+ 3 files changed, 115 insertions(+), 31 deletions(-)
+ rename codes/{preAnalysis.m => preAnalysis_bb.m} (94%)
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'add preanalysis dac'
+[master cd37dc1] add preanalysis dac
+ 1 file changed, 1264 deletions(-)
+ delete mode 100755 codes/preAnalysis_dac_allsubjetcts_pruebadeclass.m
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 37, listo.
+Contando objetos: 100% (33/33), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (17/17), listo.
+Escribiendo objetos: 100% (22/22), 4.32 KiB | 2.16 MiB/s, listo.
+Total 22 (delta 11), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   f6324c0..cd37dc1  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'add preanalysis_dac'
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+Archivos sin seguimiento:
+	codes/.DS_Store
+	codes/FP_basePreAnalysis.m~
+	codes/FP_dac.m~
+	codes/add_paths_EEG_ET_beta.m~
+	codes/cfg_struct_example.m
+	codes/preAnalysis_dac.m
+
+no hay nada agregado para confirmar, pero hay archivos sin seguimiento presentes
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Everything up-to-date
+MacBook-Air-de-DAC:corregistro dac$ git status
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que se será confirmado)
+
+	codes/.DS_Store
+	codes/FP_basePreAnalysis.m~
+	codes/FP_dac.m~
+	codes/add_paths_EEG_ET_beta.m~
+	codes/cfg_struct_example.m
+	codes/preAnalysis_dac.m
+
+no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
+MacBook-Air-de-DAC:corregistro dac$ git add -a
+error: switch desconocido `a'
+uso: git add [<opción>] [--] <especificación-de-ruta>...
+
+    -n, --dry-run         dry run ( ejecución en seco)
+    -v, --verbose         ser verboso
+
+    -i, --interactive     selección interactiva
+    -p, --patch           elegir hunks de forma interactiva
+    -e, --edit            editar diff actual y aplicar
+    -f, --force           permitir agregar caso contrario ignorar archivos
+    -u, --update          actualizado las carpetas rastreadas
+    --renormalize         renormalizar EOL de los archivos rastreados (implica -u)
+    -N, --intent-to-add   grabar solo el hecho de que la ruta será agregada después
+    -A, --all             agregar los cambios de todas las carpetas con y sin seguimiento
+    --ignore-removal      ignorar rutas removidas en el árbol de trabajo (lo mismo que --no-all)
+    --refresh             no agregar, solo actualizar el índice
+    --ignore-errors       saltar las carpetas que no pueden ser agregadas a causa de errores
+    --ignore-missing      comprobar si - incluso los archivos que faltan - se ignoran en dry run
+    --chmod (+|-)x        sobrescribir el bit ejecutable de los archivos listados
+
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'add preanalysis_dac'
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+Archivos sin seguimiento:
+	codes/.DS_Store
+	codes/FP_basePreAnalysis.m~
+	codes/FP_dac.m~
+	codes/add_paths_EEG_ET_beta.m~
+	codes/cfg_struct_example.m
+	codes/preAnalysis_dac.m
+
+no hay nada agregado para confirmar, pero hay archivos sin seguimiento presentes
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Everything up-to-date
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Ya está actualizado.
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Everything up-to-date
+MacBook-Air-de-DAC:corregistro dac$ git status
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que se será confirmado)
+
+	codes/.DS_Store
+	codes/FP_basePreAnalysis.m~
+	codes/FP_dac.m~
+	codes/add_paths_EEG_ET_beta.m~
+	codes/cfg_struct_example.m
+	codes/preAnalysis_dac.m
+
+no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
+MacBook-Air-de-DAC:corregistro dac$ git add -a
+error: switch desconocido `a'
+uso: git add [<opción>] [--] <especificación-de-ruta>...
+
+    -n, --dry-run         dry run ( ejecución en seco)
+    -v, --verbose         ser verboso
+
+    -i, --interactive     selección interactiva
+    -p, --patch           elegir hunks de forma interactiva
+    -e, --edit            editar diff actual y aplicar
+    -f, --force           permitir agregar caso contrario ignorar archivos
+    -u, --update          actualizado las carpetas rastreadas
+    --renormalize         renormalizar EOL de los archivos rastreados (implica -u)
+    -N, --intent-to-add   grabar solo el hecho de que la ruta será agregada después
+    -A, --all             agregar los cambios de todas las carpetas con y sin seguimiento
+    --ignore-removal      ignorar rutas removidas en el árbol de trabajo (lo mismo que --no-all)
+    --refresh             no agregar, solo actualizar el índice
+    --ignore-errors       saltar las carpetas que no pueden ser agregadas a causa de errores
+    --ignore-missing      comprobar si - incluso los archivos que faltan - se ignoran en dry run
+    --chmod (+|-)x        sobrescribir el bit ejecutable de los archivos listados
+
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git status
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+Cambios a ser confirmados:
+  (usa "git reset HEAD <archivo>..." para sacar del área de stage)
+
+	nuevo archivo:  codes/.DS_Store
+	nuevo archivo:  codes/FP_basePreAnalysis.m~
+	nuevo archivo:  codes/FP_dac.m~
+	nuevo archivo:  codes/add_paths_EEG_ET_beta.m~
+	nuevo archivo:  codes/cfg_struct_example.m
+	nuevo archivo:  codes/preAnalysis_dac.m
+
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'add preanalysis_dac'
+[master e3a86cc] add preanalysis_dac
+ 6 files changed, 1854 insertions(+)
+ create mode 100644 codes/.DS_Store
+ create mode 100644 codes/FP_basePreAnalysis.m~
+ create mode 100644 codes/FP_dac.m~
+ create mode 100644 codes/add_paths_EEG_ET_beta.m~
+ create mode 100644 codes/cfg_struct_example.m
+ create mode 100644 codes/preAnalysis_dac.m
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 10, listo.
+Contando objetos: 100% (10/10), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (7/7), listo.
+Escribiendo objetos: 100% (8/8), 18.81 KiB | 3.76 MiB/s, listo.
+Total 8 (delta 1), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   cd37dc1..e3a86cc  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Ya está actualizado.
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 2), reused 2 (delta 0)
+Desempaquetando objetos: 100% (4/4), listo.
+Desde http://gitlab.liaa.dc.uba.ar/dcare/corregistro
+   e3a86cc..afed4df  master     -> origin/master
+Actualizando e3a86cc..afed4df
+error: Los cambios locales de los siguientes archivos serán sobrescritos al fusionar:
+	codes/preAnalysis_dac.m
+Por favor, confirma tus cambios o aguárdalos antes de fusionar.
+Abortando
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Actualizando e3a86cc..afed4df
+Fast-forward
+ codes/preAnalysis_dac.m | 130 ++++++++++++++++++++++++++----------------------
+ 1 file changed, 71 insertions(+), 59 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'minor changes'
+[master 3e0e638] minor changes
+ 3 files changed, 1340 insertions(+), 35 deletions(-)
+ create mode 100644 codes/preAnalysis_dac.m~
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 10, listo.
+Contando objetos: 100% (10/10), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (5/5), listo.
+Escribiendo objetos: 100% (6/6), 13.19 KiB | 4.40 MiB/s, listo.
+Total 6 (delta 3), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   afed4df..3e0e638  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'interpolation bug solved'
+[master 7ce9be8] interpolation bug solved
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 7, listo.
+Contando objetos: 100% (7/7), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (3/3), listo.
+Escribiendo objetos: 100% (4/4), 403 bytes | 403.00 KiB/s, listo.
+Total 4 (delta 2), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   3e0e638..7ce9be8  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'change in preAnalysis_dac.m' 
+[master 18c4e9f] change in preAnalysis_dac.m
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 7, listo.
+Contando objetos: 100% (7/7), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (3/3), listo.
+Escribiendo objetos: 100% (4/4), 389 bytes | 389.00 KiB/s, listo.
+Total 4 (delta 2), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   7ce9be8..18c4e9f  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'change in preAnalysis_dac.m'
+[master 9d88e0a] change in preAnalysis_dac.m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 7, listo.
+Contando objetos: 100% (7/7), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (3/3), listo.
+Escribiendo objetos: 100% (4/4), 342 bytes | 342.00 KiB/s, listo.
+Total 4 (delta 2), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   18c4e9f..9d88e0a  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'change in preAnalysis_dac.m' 
+[master 4b8170c] change in preAnalysis_dac.m
+ 4 files changed, 125 insertions(+), 66 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+ ! [rejected]        master -> master (fetch first)
+error: falló el push de algunas referencias a 'http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git'
+ayuda: Actualizaciones fueron rechazadas porque el remoto contiene trabajo que
+ayuda: no existe localmente. Esto es causado usualmente por otro repositorio 
+ayuda: realizando push a la misma ref. Quizás quiera integrar primero los cambios
+ayuda: remotos (ej. 'git pull ...') antes de volver a hacer push.
+ayuda: Vea 'Notes about fast-forwards0 en 'git push --help' para detalles.
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 4), reused 0 (delta 0)
+Desempaquetando objetos: 100% (6/6), listo.
+Desde http://gitlab.liaa.dc.uba.ar/dcare/corregistro
+   9d88e0a..b76dd60  master     -> origin/master
+Auto-fusionando codes/FP_basePreAnalysis.m
+Merge made by the 'recursive' strategy.
+ codes/FP_basePreAnalysis.m  | 11 ++++++-----
+ codes/FP_basePreAnalysis.m~ | 36 ++++++++++++++++++++----------------
+ codes/preAnalysis_bb.m      | 10 +++++-----
+ 3 files changed, 31 insertions(+), 26 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 23, listo.
+Contando objetos: 100% (20/20), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (9/9), listo.
+Escribiendo objetos: 100% (11/11), 2.20 KiB | 1.10 MiB/s, listo.
+Total 11 (delta 7), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   b76dd60..c43133a  master -> master
+MacBook-Air-de-DAC:corregistro dac$ 
+MacBook-Air-de-DAC:corregistro dac$ git status
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git checkout -- <archivo>..." para descartar los cambios en el directorio de trabajo)
+
+	modificado:     codes/preAnalysis_dac.m
+	modificado:     codes/preAnalysis_dac.m~
+
+sin cambios agregados al commit (usa "git add" y/o "git commit -a")
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Ya está actualizado.
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'preanalysis dac'
+[master 701a373] preanalysis dac
+ 3 files changed, 83 insertions(+), 1153 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 11, listo.
+Contando objetos: 100% (11/11), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (5/5), listo.
+Escribiendo objetos: 100% (6/6), 893 bytes | 893.00 KiB/s, listo.
+Total 6 (delta 4), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   c43133a..701a373  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'preanalysis dac'
+[master b8fc73a] preanalysis dac
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+ ! [rejected]        master -> master (fetch first)
+error: falló el push de algunas referencias a 'http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git'
+ayuda: Actualizaciones fueron rechazadas porque el remoto contiene trabajo que
+ayuda: no existe localmente. Esto es causado usualmente por otro repositorio 
+ayuda: realizando push a la misma ref. Quizás quiera integrar primero los cambios
+ayuda: remotos (ej. 'git pull ...') antes de volver a hacer push.
+ayuda: Vea 'Notes about fast-forwards0 en 'git push --help' para detalles.
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'preanalysis dac'
+En la rama master
+Tu rama está adelantada a 'origin/master' por 1 commit.
+  (usa "git push" para publicar tus commits locales)
+
+nada para hacer commit, el árbol de trabajo está limpio
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+ ! [rejected]        master -> master (fetch first)
+error: falló el push de algunas referencias a 'http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git'
+ayuda: Actualizaciones fueron rechazadas porque el remoto contiene trabajo que
+ayuda: no existe localmente. Esto es causado usualmente por otro repositorio 
+ayuda: realizando push a la misma ref. Quizás quiera integrar primero los cambios
+ayuda: remotos (ej. 'git pull ...') antes de volver a hacer push.
+ayuda: Vea 'Notes about fast-forwards0 en 'git push --help' para detalles.
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'preanalysis dac'
+En la rama master
+Tu rama está adelantada a 'origin/master' por 1 commit.
+  (usa "git push" para publicar tus commits locales)
+
+nada para hacer commit, el árbol de trabajo está limpio
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+ ! [rejected]        master -> master (fetch first)
+error: falló el push de algunas referencias a 'http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git'
+ayuda: Actualizaciones fueron rechazadas porque el remoto contiene trabajo que
+ayuda: no existe localmente. Esto es causado usualmente por otro repositorio 
+ayuda: realizando push a la misma ref. Quizás quiera integrar primero los cambios
+ayuda: remotos (ej. 'git pull ...') antes de volver a hacer push.
+ayuda: Vea 'Notes about fast-forwards0 en 'git push --help' para detalles.
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'preanalysis damian'
+En la rama master
+Tu rama está adelantada a 'origin/master' por 1 commit.
+  (usa "git push" para publicar tus commits locales)
+
+nada para hacer commit, el árbol de trabajo está limpio
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+ ! [rejected]        master -> master (fetch first)
+error: falló el push de algunas referencias a 'http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git'
+ayuda: Actualizaciones fueron rechazadas porque el remoto contiene trabajo que
+ayuda: no existe localmente. Esto es causado usualmente por otro repositorio 
+ayuda: realizando push a la misma ref. Quizás quiera integrar primero los cambios
+ayuda: remotos (ej. 'git pull ...') antes de volver a hacer push.
+ayuda: Vea 'Notes about fast-forwards0 en 'git push --help' para detalles.
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+remote: Enumerating objects: 34, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 22 (delta 12), reused 19 (delta 9)
+Desempaquetando objetos: 100% (22/22), listo.
+Desde http://gitlab.liaa.dc.uba.ar/dcare/corregistro
+   701a373..e6ec96d  master     -> origin/master
+CONFLICTO (modificar/borrar): codes/add_paths_EEG_ET_beta.m borrado en e6ec96dcd6f0d9b2ed70be8eb3f470838390bb7d y modificado en HEAD. Falta versión HEAD de codes/add_paths_EEG_ET_beta.m en el árbol.
+Fusión automática falló; arregle los conflictos y luego realice un commit con el resultado.
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'preanalysis dac'
+[master fdb9158] preanalysis dac
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 12, listo.
+Contando objetos: 100% (12/12), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (5/5), listo.
+Escribiendo objetos: 100% (7/7), 834 bytes | 417.00 KiB/s, listo.
+Total 7 (delta 3), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   e6ec96d..fdb9158  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+remote: Enumerating objects: 79, done.
+remote: Counting objects: 100% (71/71), done.
+remote: Compressing objects: 100% (48/48), done.
+remote: Total 55 (delta 35), reused 0 (delta 0)
+Desempaquetando objetos: 100% (55/55), listo.
+Desde http://gitlab.liaa.dc.uba.ar/dcare/corregistro
+   fdb9158..f31db73  master     -> origin/master
+Actualizando fdb9158..f31db73
+Fast-forward
+ codes/EEG_extract_epochs_2020.m  | 202 +++++++++++++
+ codes/EEG_extract_epochs_2020.m~ | 202 +++++++++++++
+ codes/ERP_preliminar.m           | 252 ++++++++++++++++
+ codes/FP_basePreAnalysis.m       | 160 ++++++++++-
+ codes/FP_basePreAnalysis.m~      | 384 -------------------------
+ codes/FP_bb.m                    | 126 +++++++-
+ codes/FP_dac.m                   |  25 +-
+ codes/FP_dac.m~                  |  45 ++-
+ codes/FP_epochAnalysis.m         | 355 +++++++++++++++++++++++
+ codes/FP_epochAnalysis.m~        | 354 +++++++++++++++++++++++
+ codes/add_paths_EEG_ET_beta.m    |   7 +-
+ codes/add_paths_EEG_ET_beta.m~   |  91 ------
+ codes/preAnalysis_bb.m           | 176 +++---------
+ codes/preAnalysis_dac.m          | 601 ++++++---------------------------------
+ codes/preAnalysis_dac.m~         | 590 +++++---------------------------------
+ 15 files changed, 1902 insertions(+), 1668 deletions(-)
+ create mode 100644 codes/EEG_extract_epochs_2020.m
+ create mode 100644 codes/EEG_extract_epochs_2020.m~
+ create mode 100644 codes/ERP_preliminar.m
+ delete mode 100644 codes/FP_basePreAnalysis.m~
+ create mode 100644 codes/FP_epochAnalysis.m
+ create mode 100644 codes/FP_epochAnalysis.m~
+ delete mode 100644 codes/add_paths_EEG_ET_beta.m~
+MacBook-Air-de-DAC:corregistro dac$ cd ..
+MacBook-Air-de-DAC:GitLab dac$ cd visualsearch_eegem/
+MacBook-Air-de-DAC:visualsearch_eegem dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/juank/visualsearch_eegem.git/
+remote: Enumerating objects: 218, done.
+remote: Counting objects: 100% (213/213), done.
+remote: Compressing objects: 100% (83/83), done.
+remote: Total 199 (delta 44), reused 185 (delta 35)
+Recibiendo objetos: 100% (199/199), 336.50 KiB | 1.44 MiB/s, listo.
+Resolviendo deltas: 100% (44/44), completado con 9 objetos locales.
+Desde http://gitlab.liaa.dc.uba.ar/juank/visualsearch_eegem
+   2a0a5b9..c4bae54  master     -> origin/master
+Actualizando 2a0a5b9..c4bae54
+error: Los cambios locales de los siguientes archivos serán sobrescritos al fusionar:
+	codes/add_paths_EEG_ET_beta.m
+	codes/analysis_et_dac.m
+	codes/analysis_et_v1.m
+	codes/preAnalysis_dac_allsubjetcts.m
+	codes/preAnalysis_dac_beta.m
+	codes/search_eventsEEG.m
+Por favor, confirma tus cambios o aguárdalos antes de fusionar.
+error: Los siguientes archivos sin seguimiento en el árbol de trabajo serán sobrescritos al fusionar:
+	codes/ERP_preliminar.m
+	codes/ERP_preliminar.m~
+	codes/TwoFiguresFile.fig
+	codes/add_paths_EEG_ET_v1.m
+	codes/analisis_fix2OFI.m
+	codes/analysis_et_v1_local.m
+	codes/cat_atrib.m
+	codes/cat_atrib.m~
+	codes/edf2asc
+	codes/engbert_standalone.m
+	codes/fun_EEG_extract_epochs_beta.m~
+	codes/ica_standalone.m
+	codes/ica_standalone2.m
+	codes/ica_standalone3.m
+	codes/interpolate_standalone.m
+	codes/my_functions/fun_parse_eyedata_EEG.m
+	codes/my_functions/fun_parse_eyedata_EEG.m~
+	codes/new_field.m
+	codes/plochl_trucho_standalone.m
+	codes/proc_data_local_copy.m
+	codes/proc_data_local_copy.m~
+	codes/table_porcentajes.m
+	codes/untitled.m
+	codes/vss_images.m
+Por favor, muévelos o elimínalos antes de fusionar.
+Abortando
+MacBook-Air-de-DAC:visualsearch_eegem dac$ cd ..
+MacBook-Air-de-DAC:GitLab dac$ cd corregistro/
+MacBook-Air-de-DAC:corregistro dac$ ls
+codes
+MacBook-Air-de-DAC:corregistro dac$ ls
+codes
+MacBook-Air-de-DAC:corregistro dac$ cd codes
+MacBook-Air-de-DAC:codes dac$ ls
+EEG_extract_epochs_2020.m	FP_epochAnalysis.m
+EEG_extract_epochs_2020.m~	FP_epochAnalysis.m~
+ERP_preliminar.m		OPTI_EEG_ET_analysis_2.m
+FP_EEGanalysis.m		add_paths_EEG_ET_beta.m
+FP_basePreAnalysis.m		cfg_struct_example.m
+FP_bb.m				preAnalysis_bb.m
+FP_dac.m			preAnalysis_dac.m
+FP_dac.m~			preAnalysis_dac.m~
+MacBook-Air-de-DAC:codes dac$ pwd
+/Users/dac/Documents/GitLab/corregistro/codes
+MacBook-Air-de-DAC:codes dac$ ls
+EEG_extract_epochs_2020.m	FP_epochAnalysis.m~
+EEG_extract_epochs_2020.m~	OPTI_EEG_ET_analysis_2.m
+ERP_preliminar.m		add_paths_EEG_ET_beta.m
+FP_EEGanalysis.m		cfg_struct_example.m
+FP_basePreAnalysis.m		preAnalysis_bb.m
+FP_bb.m				preAnalysis_dac.m
+FP_dac.m			preAnalysis_dac.m~
+FP_epochAnalysis.m
+MacBook-Air-de-DAC:codes dac$ ls
+EEG_extract_epochs_2020.m	FP_epochAnalysis.m~
+EEG_extract_epochs_2020.m~	OPTI_EEG_ET_analysis_2.m
+ERP_preliminar.m		add_paths_EEG_ET_beta.m
+FP_EEGanalysis.m		cfg_struct_example.m
+FP_basePreAnalysis.m		preAnalysis_bb.m
+FP_bb.m				preAnalysis_dac.m
+FP_dac.m			preAnalysis_dac.m~
+FP_epochAnalysis.m
+MacBook-Air-de-DAC:codes dac$ cd ..
+MacBook-Air-de-DAC:corregistro dac$ ls
+codes
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'scripts for analysis dac'
+[master 84e9ed3] scripts for analysis dac
+ 6 files changed, 145 insertions(+), 215 deletions(-)
+ delete mode 100644 codes/FP_dac.m~
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Ya está actualizado.
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'scripts for analysis dac'
+En la rama master
+Tu rama está adelantada a 'origin/master' por 1 commit.
+  (usa "git push" para publicar tus commits locales)
+
+nada para hacer commit, el árbol de trabajo está limpio
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Ya está actualizado.
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 15, listo.
+Contando objetos: 100% (15/15), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (7/7), listo.
+Escribiendo objetos: 100% (8/8), 1.68 KiB | 573.00 KiB/s, listo.
+Total 8 (delta 6), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   f31db73..84e9ed3  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'new analysis dac'
+[master b4f2d93] new analysis dac
+ 5 files changed, 486 insertions(+), 423 deletions(-)
+ rewrite codes/EEG_extract_epochs_2020.m (67%)
+ rewrite codes/EEG_extract_epochs_2020.m~ (67%)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 13, listo.
+Contando objetos: 100% (13/13), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (6/6), listo.
+Escribiendo objetos: 100% (7/7), 1.70 KiB | 1.70 MiB/s, listo.
+Total 7 (delta 5), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   84e9ed3..b4f2d93  master -> master
+MacBook-Air-de-DAC:corregistro dac$ git pull
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Ya está actualizado.
+MacBook-Air-de-DAC:corregistro dac$ git status
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+nada para hacer commit, el árbol de trabajo está limpio
+MacBook-Air-de-DAC:corregistro dac$ git status
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git checkout -- <archivo>..." para descartar los cambios en el directorio de trabajo)
+
+	modificado:     codes/EEG_extract_epochs_2020.m
+
+sin cambios agregados al commit (usa "git add" y/o "git commit -a")
+MacBook-Air-de-DAC:corregistro dac$ git status
+En la rama master
+Tu rama está actualizada con 'origin/master'.
+
+nada para hacer commit, el árbol de trabajo está limpio
+MacBook-Air-de-DAC:corregistro dac$ git add -A
+MacBook-Air-de-DAC:corregistro dac$ git commit -am 'epoch dac'
+[master 25de911] epoch dac
+ 4 files changed, 30 insertions(+), 30 deletions(-)
+MacBook-Air-de-DAC:corregistro dac$ git push
+warning: redirigiendo a https://gitlab.liaa.dc.uba.ar/dcare/corregistro.git/
+Enumerando objetos: 13, listo.
+Contando objetos: 100% (13/13), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (6/6), listo.
+Escribiendo objetos: 100% (7/7), 832 bytes | 832.00 KiB/s, listo.
+Total 7 (delta 5), reusado 0 (delta 0)
+To http://gitlab.liaa.dc.uba.ar/dcare/corregistro.git
+   b4f2d93..25de911  master -> master
+MacBook-Air-de-DAC:corregistro dac$ python
+
+WARNING: Python 2.7 is not recommended. 
+This version is included in macOS for compatibility with legacy software. 
+Future versions of macOS will not include Python 2.7. 
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Nov  9 2019, 05:55:08) 
+[GCC 4.2.1 Compatible Apple LLVM 11.0.0 (clang-1100.0.32.4) (-macos10.15-objc-s on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print 'perro'
+perro
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> exit()
+MacBook-Air-de-DAC:corregistro dac$ python programade prueba.py
+/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python: can't open file 'programade': [Errno 2] No such file or directory
+MacBook-Air-de-DAC:corregistro dac$ jupyter lab
+[I 16:30:13.034 LabApp] JupyterLab extension loaded from /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/jupyterlab
+[I 16:30:13.034 LabApp] JupyterLab application directory is /Library/Frameworks/Python.framework/Versions/3.7/share/jupyter/lab
+[W 16:30:13.038 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 16:30:13.047 LabApp] JupyterLab extension loaded from /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/jupyterlab
+[I 16:30:13.047 LabApp] JupyterLab application directory is /Library/Frameworks/Python.framework/Versions/3.7/share/jupyter/lab
+[I 16:30:13.050 LabApp] Serving notebooks from local directory: /Users/dac/Documents/GitLab/corregistro
+[I 16:30:13.050 LabApp] The Jupyter Notebook is running at:
+[I 16:30:13.050 LabApp] http://localhost:8888/?token=e57d963b0917af956ce405a0b7e7f767880bb5a0f96e9aa3
+[I 16:30:13.050 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 16:30:13.055 LabApp] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=e57d963b0917af956ce405a0b7e7f767880bb5a0f96e9aa3
+[I 16:30:23.380 LabApp] Accepting one-time-token-authenticated connection from ::1
+[W 16:30:24.360 LabApp] Could not determine jupyterlab build status without nodejs
+[W 16:30:24.949 LabApp] 404 GET /api/contents/Downloads?1580758224926 (::1): No such file or directory: Downloads
+[W 16:30:24.950 LabApp] No such file or directory: Downloads
+[W 16:30:24.951 LabApp] 404 GET /api/contents/Downloads?1580758224926 (::1) 2.84ms referer=http://localhost:8888/lab
+[W 16:30:24.953 LabApp] 404 GET /api/contents/Downloads/Catalizador_alldata.ipynb?content=0&1580758224934 (::1): No such file or directory: Downloads/Catalizador_alldata.ipynb
+[W 16:30:24.953 LabApp] No such file or directory: Downloads/Catalizador_alldata.ipynb
+[W 16:30:24.959 LabApp] 404 GET /api/contents/Downloads/Catalizador_alldata.ipynb?content=0&1580758224934 (::1) 7.04ms referer=http://localhost:8888/lab
+[W 16:30:24.960 LabApp] 404 GET /api/contents/Downloads/prototipo_stock_pa%C3%B1ol.ipynb?content=0&1580758224936 (::1): No such file or directory: Downloads/prototipo_stock_pañol.ipynb
+[W 16:30:24.960 LabApp] No such file or directory: Downloads/prototipo_stock_pañol.ipynb
+[W 16:30:24.961 LabApp] 404 GET /api/contents/Downloads/prototipo_stock_pa%C3%B1ol.ipynb?content=0&1580758224936 (::1) 1.92ms referer=http://localhost:8888/lab
+[I 16:32:09.166 LabApp] 302 GET / (::1) 0.76ms
+[W 16:32:10.303 LabApp] Could not determine jupyterlab build status without nodejs
+[I 16:32:17.779 LabApp] Shutting down on /api/shutdown request.
+[I 16:32:17.780 LabApp] Shutting down 0 kernels
+MacBook-Air-de-DAC:corregistro dac$ 
+  [Restored 10 Feb 2020 22:57:17]
+Last login: Mon Feb 10 22:56:53 on console
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+MacBook-Air-de-DAC:corregistro dac$ 
+  [Restored 11 Feb 2020 01:00:36]
+Last login: Tue Feb 11 00:55:27 on console
+Restored session: Tue Feb 11 00:35:34 -03 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Air-de-DAC:corregistro dac$ 
+  [Restored 14 Feb 2020 18:18:06]
+Last login: Fri Feb 14 18:18:00 on console
+Restored session: Fri Feb 14 18:17:03 -03 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+MacBook-Air-de-DAC:corregistro dac$ nano pepe
+
+  GNU nano 2.0.6                File: pepe                            Modified  
+
+hola
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  [ New File ]
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell
